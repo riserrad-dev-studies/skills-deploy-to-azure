@@ -61,7 +61,7 @@ jobs:
           tags: |
             type=sha,format=long,prefix=
 
-      - name Build and push Docker image
+      - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
           context: .
@@ -74,7 +74,7 @@ jobs:
     name: Deploy app container to Azure
     steps:
       - name: "Login via Azure CLI"
-        users: azure/login@v2
+        uses: azure/login@v2
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
